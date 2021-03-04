@@ -13,15 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.timerviews
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import com.example.androiddevchallenge.TimerViewModel
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF03DAC5)
-val surfaceColor = Color(0xFF003c8f)
-val backgroundColor = Color(0xFF1565c0)
-val lightSurface = Color(0xFF5e92f3)
-val teal500 = Color(0xFF00796b)
+@Composable
+fun FloatingButton(viewModel: TimerViewModel) {
+
+    FloatingActionButton(onClick = { viewModel.statusChanged() }) {
+        Text(text = if (viewModel.started) "STOP" else "START")
+    }
+}
